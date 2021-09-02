@@ -1,7 +1,9 @@
 <?php
     require_once("operaciones.php");
 
-    $cabecera_html = '
+    function showOperacion($numero1, $numero2, $op){
+
+        $cabecera_html = '
         <!DOCTYPE html>
         <html lang="en">
 
@@ -34,24 +36,11 @@
         </body>
     </html>
     ';
-
-
-    // isset($arr['clave']) > True: si clave está en el arreglo arr
-    //                      > False: si clave no está en el arreglo arr
-    // var_dump($_GET);  
-    // echo '<br>isset($_GET[\'numero1\']): ';
-    // var_dump(isset($_GET['numero1']));
-    // echo '<br>isset($_GET[\'hola\']): ';
-    // var_dump(isset($_GET['hola']));
-
     echo $cabecera_html;
 
-    if(isset($_GET['numero1']) && isset($_GET['numero2']) && isset($_GET['op'])){
+    if(isset($numero1) && isset($numero2) && isset($op)){
         // Si se cumple esta condición, el usuario nos pasó la info
-        $numero1 =  intval($_GET['numero1']);
-        $numero2 =  intval($_GET['numero2']);
-        $op = $_GET['op'];
-        
+             
         switch ($op) {
             case 'sumar':
                 $resultado = sumar($numero1, $numero2);
@@ -61,7 +50,11 @@
                 $resultado = dividir($numero1, $numero2);
                 $simbolo = "/";
                 break;
-            
+            case 'restar':
+                $resultado = restar($numero1, $numero2);
+                $simbolo = "-";
+                break;
+
             default:
                 $resultado = "Operación invalida?";
                 $simbolo = "??";
@@ -90,5 +83,10 @@
     }
     
     echo $footer_html;
+
+
+    }
+    
+    
 
 ?>

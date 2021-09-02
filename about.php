@@ -1,44 +1,45 @@
 <?php
-    /*
+
+function showAbout($desarrollador = null){
+   /*
     Acceder a una sección about que 
      * indique los creadores de la calculadora. 
      * Si le indicamos con un parametro un desarrollador 
      *  en particular debe mostrar solo eso: 
-     *  ejemplo: about.php?developer=juan
+     *  ejemplo: about.php?desarrollador=juan
 
     */
 
-    require_once("desarrolladores.php");
+    echo '
+    <!DOCTYPE html>
+    <html lang="en">
 
-    if(isset($_GET['desarrollador'])){
-        $desarrollador = $_GET['desarrollador'];
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Calculadora en backend</title>
+        <base href="'.BASE_URL.'" target="_blank"/>
+
+    </head>
+
+    <body>';
+
+      if(isset($desarrollador)){
         
-        if(isset($desarrolladores[$desarrollador])){
-            $desc = $desarrolladores[$desarrollador];
-        }
-        else{
-            $desc = "Un desarrollador que no está en nuestra base de datos.";
-        }
-
         echo "<h1>Acerca de $desarrollador</h1>";
-        echo "<p>$desc</p>";
-    }
-    else{
-        echo "<h1>Acerca de los desarrolladores</h1>";
+        echo "<img src='img\dev.jpg'>";
 
-        echo "<ul>";
-        foreach ($desarrolladores as  $clave => $valor) {
-            echo "
-                <li>
-                    <a href='?desarrollador=$clave'>
-                        $clave
-                    </a>
-                </li>
-            ";
-        }
-        for ($i=0; $i < 10; $i++) { 
-            # code...
-        }
+      }else{
+          echo "<h1>Este es about general: Calculadora de la materia Web 2 </h1>";
+          echo "<img src='img\about.jpg'>";
+      }
 
-        echo "</ul>";
-    }
+
+      echo '</body>
+
+      </html>';
+}
+   
+    
+    ?>
