@@ -29,8 +29,8 @@ function showHome() {
             SIMULAR EL LLAMADO A: 
             - http://localhost/calculadora/restar/10/2
             - http://localhost/calculadora/sumar/10/2
+        -->
             
-            <h1>Calculadora</h1>
         <form method="GET" action="calcular.php">
             <input type="number" name="numero1">
             <select name="op">
@@ -41,13 +41,10 @@ function showHome() {
             </select>
             <input type="number" name="numero2">
             <input type="submit" value="=">
-        </form> -->
+        </form>
 
-        
     </body>
-
     </html>';
 }
-
 
 ?>
