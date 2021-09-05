@@ -1,6 +1,6 @@
 <?php
 
-function showHome(){
+function showHome() {
     echo '
     <!DOCTYPE html>
     <html lang="es">
@@ -11,15 +11,16 @@ function showHome(){
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Calculadora en backend</title>
         <base href="'.BASE_URL.'" target="_blank"/>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <nav>
-            <h3><a href="/home" target="_parent">CALCULADORA</a></h3>
+            <h3 class="title"><a href="home" target="_parent">CALCULADORA</a></h3>
             <ul>
                 <li><a href="pi" target="_parent">Pi</a></li>
                 <li><a href="about" target="_parent">About</a></li>
-                <li><a href="about/Javito" target="_parent">About DEV</a></li>
+                <li><a href="about/javito" target="_parent">About DEV</a></li>
             </ul>
         </nav>
 
@@ -46,7 +47,7 @@ function showHome(){
     </body>
 
     </html>';
-    }
+}
 
 
 ?>
