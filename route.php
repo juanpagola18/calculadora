@@ -1,8 +1,6 @@
 <?php
-require_once "pi.php";
-require_once "about.php";
-require_once "calcular.php";
-require_once "index.php";
+require_once "src/sections.php";
+require_once "src/calcular.php";
 
 define('BASE_URL', '//'.$_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']).'/');
 
@@ -27,20 +25,16 @@ $params = explode('/', $action);
 // determina que camino seguir según la acción
 switch ($params[0]) {
     case 'about': 
-        if(isset($params[1])){
+        if (isset($params[1])) {
             showAbout($params[1]); 
-        }else{
+        } else {
             showAbout(); 
         }
-        
         break;
-    case 'sumar': 
-        showOperacion($params[1], $params[2], $params[0]); 
-        break;
-    case 'dividir': 
-        showOperacion($params[1], $params[2], $params[0]);
-        break;
-    case 'restar': 
+    case 'sumar':
+    case 'restar':
+    case 'dividir':
+    case 'multiplicar': 
         showOperacion($params[1], $params[2], $params[0]);
         break;
     case 'pi': 
